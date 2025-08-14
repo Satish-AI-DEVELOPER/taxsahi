@@ -1,26 +1,224 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f7f7;
+  color: #171717;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero a {
+  background-color: #facc15;
+  color: black;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero a:hover {
+  background-color: #eab308;
+}
+
+/* Tools Section */
+.tools {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tools h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+/* Advanced Tool Cards */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.tool-card::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(120deg, #3b82f6, #6366f1, #facc15);
+  top: -10%;
+  left: -10%;
+  z-index: 0;
+  opacity: 0.05;
+  transform: rotate(25deg);
+}
+
+.tool-card h3,
+.tool-card p,
+.tool-card a {
+  position: relative;
+  z-index: 1;
+}
+
+.tool-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tool-card p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.tool-card a {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.tool-card a:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+/* ---- Controls / Layout for calculators ---- */
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 1.25rem;
+}
+
+.tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: .7rem 1rem;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: .6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background:#3b82f6; color:#fff; border-color:#3b82f6; }
+.btn.ghost { background:#f8fafc; }
+
+.btn-group { display:flex; gap:.5rem; flex-wrap:wrap; }
+
+.row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: .75rem 1rem;
+  align-items: center;
+  margin: .6rem 0;
+}
+.row.inline { grid-template-columns: 1fr 1fr; }
+
+.label { font-weight:600; color:#374151; }
+.help  { font-size:.85rem; color:#6b7280; }
+
+.input, .select {
+  width: 100%;
+  padding: .7rem .9rem;
+  border: 1px solid #d1d5db;
+  border-radius: .6rem;
+  font-size: 1rem;
+  outline: none;
+}
+.input:focus, .select:focus { border-color:#3b82f6; box-shadow:0 0 0 3px rgba(59,130,246,.15); }
+
+.pill-toggle { display:inline-flex; border:1px solid #e5e7eb; border-radius:999px; overflow:hidden; }
+.pill-toggle button {
+  padding:.45rem .9rem; border:none; background:#fff; cursor:pointer; font-weight:600;
+}
+.pill-toggle button.active { background:#111827; color:#fff; }
+
+.stats {
+  display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  margin-top:1rem;
+}
+.stat {
+  background:#f3f4f6; border-radius:.8rem; padding:1rem;
+}
+.stat h4 { margin-bottom:.4rem; font-size:.95rem; color:#4b5563; }
+.stat .val { font-size:1.25rem; font-weight:800; }
+
+.notice {
+  background:#fffbeb; border:1px solid #fde68a; color:#854d0e;
+  padding:.75rem 1rem; border-radius:.6rem; margin:.75rem 0;
+}
+
+.table {
+  width:100%; border-collapse: collapse; margin-top:.75rem; font-size:.95rem;
+}
+.table th, .table td { border:1px solid #e5e7eb; padding:.6rem .7rem; text-align:right; }
+.table th:first-child, .table td:first-child { text-align:left; }
+.table th { background:#f9fafb; font-weight:700; }
+.copy-wrap { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1rem; }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
 }
