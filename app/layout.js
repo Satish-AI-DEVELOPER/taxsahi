@@ -1,14 +1,15 @@
 import './globals.css'
 
 export const metadata = {
-  title: "Smart Calculator - Financial Tools",
-  description: "One tool for all your financial calculations including tax, EMI, GST and more.",
-  keywords: ["financial calculator", "tax calculator", "EMI calculator", "GST calculator"],
+  title: "TaxSahi - Smart Financial Calculator & Tax Tools , emi calculator",
+  description:
+    "TaxSahi offers modern calculators for income tax, GST, EMI and more. Accurate results with new and old regime tax slabs in India.",
+  keywords: "income tax calculator, gst calculator, emi calculator, India tax tools",
   openGraph: {
-    title: "Smart Calculator - Financial Tools",
+    title: "TaxSahi - Smart Financial Calculator & Tax Tools",
     description: "One tool for all your financial calculations including tax, EMI, GST and more.",
     url: "https://taxsahi.com",
-    siteName: "Smart Calculator",
+    siteName: "Taxsahi",
     images: [
       {
         url: "https://taxsahi.com/og-image.jpg",
@@ -50,7 +51,17 @@ export default function RootLayout({ children }) {
         <meta property="og:image:height" content={metadata.openGraph.images[0].height} />
         <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
       </head>
-      <body>{children}</body>
+      <body>{children}
+       
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSRXJVRRT3"></script>
+       <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+       gtag('config', 'G-RSRXJVRRT3');
+        </script>
+      </body>
     </html>
   )
 }
