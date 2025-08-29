@@ -4,7 +4,11 @@ import { Badge } from '@/components/ui/badge';
 import { Clock, User, Calendar, Play, ExternalLink } from 'lucide-react';
 import { Article } from '@/types/article';
 import { Button } from '@/components/ui/button';
-
+<head>
+  <meta name="google-adsense-account" content="ca-pub-4172536925110639"></meta>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4172536925110639"
+     crossOrigin="anonymous"></script>
+</head>
 interface ArticleModalProps {
   article: Article | null;
   isOpen: boolean;

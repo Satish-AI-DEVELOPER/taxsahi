@@ -14,6 +14,11 @@ import yash_Nayanthara from '@/assets/Yash_Nayanthara.jpg';
 import AI_Enabled from '@/assets/AI-Enabled-Search.jpg';
 import India_Shines from '@/assets/India-Shines.jpg';
 
+<head>
+  <meta name="google-adsense-account" content="ca-pub-4172536925110639"></meta>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4172536925110639"
+     crossOrigin="anonymous"></script>
+</head>
 // Sample initial articles for demonstration
 const initialArticles: Article[] = [
   {

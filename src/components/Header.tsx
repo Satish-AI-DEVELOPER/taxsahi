@@ -4,7 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Search, PlusCircle, Menu, X } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ArticleForm } from './ArticleForm';
-
+<head>
+  <meta name="google-adsense-account" content="ca-pub-4172536925110639"></meta>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4172536925110639"
+     crossOrigin="anonymous"></script>
+</head>
 interface HeaderProps {
   onSearch: (query: string) => void;
   onCategoryFilter: (category: string | null) => void;
