@@ -3,14 +3,24 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Clock, User, Play, Star } from 'lucide-react';
 import { Article } from '@/types/article';
+import { useNavigate } from 'react-router-dom';
+import { slugify } from '@/data/articles';
 
 interface ArticleCardProps {
   article: Article;
-  onClick: (article: Article) => void;
+  onClick?: (article: Article) => void;
   featured?: boolean;
 }
 
 export const ArticleCard = ({ article, onClick, featured = false }: ArticleCardProps) => {
+  const navigate = useNavigate();
+  
+
+  const handleClick = () => {
+    const slug = slugify(article.title);
+    navigate(`/article/${slug}`);
+  };
+
   const getCategoryColor = (category: string) => {
     const colors = {
       technology: 'bg-category-tech text-white',
@@ -24,7 +34,7 @@ export const ArticleCard = ({ article, onClick, featured = false }: ArticleCardP
   return (
     <Card 
       className={`card-hover cursor-pointer overflow-hidden ${featured ? 'featured-bg border-primary/50' : ''}`}
-      onClick={() => onClick(article)}
+      onClick={handleClick}
     >
       {article.imageUrl && (
         <div className="relative aspect-video overflow-hidden">
